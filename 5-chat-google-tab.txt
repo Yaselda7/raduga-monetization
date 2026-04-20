@@ -1,0 +1,121 @@
+﻿Отлично, делаем готовый шаблон Google Sheets MVP, который ты сможешь просто перенести 1-в-1 и сразу запускать тестирование.
+Я дам тебе структуру так, как будто ты уже создаёшь файл.
+
+📊 GOOGLE SHEETS MVP — ГОТОВАЯ СТРУКТУРА
+📁 ЛИСТ 1: Responses (ввод ответов)
+📌 Структура
+Каждый респондент = одна строка
+UserQ1_S1Q1_S2Q1_S3Q1_S4Q2_S1Q2_S2...Q12_S4Anna423543...4
+📌 Логика:
+• 0–5 шкала 
+• каждый Q разбит на statements (S1–S4) 
+• каждый statement = отдельная ось 
+
+📁 ЛИСТ 2: Mapping (сердце системы)
+Ты создаёшь таблицу соответствий:
+QuestionStatementAxisQ1_S1Deep understandingDepthQ1_S2Try immediatelySpeedQ1_S3Discuss with othersContactQ1_S4Fast resultSpeedQ2_S1Structured learningStructureQ2_S2Practical learningSpeedQ2_S3DiscussionContactQ2_S4ObservationAutonomy
+📌 Оси (фиксируешь один раз):
+• Structure 
+• Flexibility 
+• Depth 
+• Speed 
+• Autonomy 
+• Contact 
+• Avoidance_Delay 
+• Avoidance_Overcomplicate 
+• Avoidance_Devalue 
+• Avoidance_Escape 
+
+📁 ЛИСТ 3: Scores (расчёт)
+📌 Структура:
+UserStructureFlexibilityDepthSpeedAutonomyContact
+🧮 ФОРМУЛА (ключевая логика)
+Пример для Structure:
+=SUMIF(Mapping!C:C,"Structure",Responses!B2:Z2)
+
+📌 НОРМАЛИЗАЦИЯ
+Допустим у тебя 4 вопроса на ось:
+=Structure / 4
+
+📌 В %
+=(Structure_avg / 5) * 100
+
+📁 ЛИСТ 4: Avoidance
+UserDelayOvercomplicateDevalueEscape
+📌 Формулы:
+=SUMIF(Mapping!C:C,"Avoidance_Delay",Responses!B2:Z2)
+(аналогично для остальных)
+
+📌 Доминирующее избегание:
+=INDEX(B2:E2, MATCH(MAX(B2:E2), B2:E2, 0))
+
+📁 ЛИСТ 5: Profile Output
+📌 Итоговая таблица:
+UserProfileStrengthsTensionsStrategy
+🧠 1. PROFILE (логика выбора)
+Берёшь TOP 2 оси:
+Пример:
+• Depth = 85 
+• Autonomy = 90 
+👉 формула (логически):
+Autonomous Deep Builder
+
+✍️ 2. TEXT GENERATION (шаблоны)
+🔹 STRENGTHS
+Если:
+• Structure > 65 
+• Depth > 65 
+👉 вставка:
+Strong system thinking and ability to work with complex structures.
+
+🔹 TENSIONS
+Если:
+• Speed < 40 
+• Contact < 40 
+👉 вставка:
+Reduced comfort in fast-paced or highly social environments.
+
+🔹 STRATEGY
+Если:
+• Autonomy high 
+• Structure high 
+👉 вставка:
+Best suited for autonomous systems, long-term projects, and structured creation environments.
+
+🔹 AVOIDANCE (вставка)
+Primary avoidance pattern: Overcomplication
+
+📁 ЛИСТ 6 (опционально): Dashboard
+Мини-визуализация:
+• график осей (radar chart) 
+• топ-3 оси 
+• тип избегания 
+
+🚀 2. КАК ЭТО ЗАПУСТИТЬ (очень важно)
+Шаг 1
+Создаёшь Google Sheet с 5 листами
+Шаг 2
+Заполняешь 1–2 тестовых человека сама
+Шаг 3
+Смотришь:
+• работает ли логика 
+• совпадает ли “ощущение человека” с результатом 
+Шаг 4
+Упрощаешь, если:
+• слишком много колонок 
+• сложно объяснить 
+
+⚠️ 3. КРИТИЧЕСКОЕ УПРОЩЕНИЕ (совет)
+Если станет тяжело:
+👉 убираешь Statements
+👉 оставляешь только оси
+(это второй этап MVP)
+
+🧭 4. ЧТО У ТЕБЯ УЖЕ ЕСТЬ
+Фактически ты сейчас собрала:
+👉 prototype psychometric behavioral system
+с:
+• профилированием 
+• избеганием 
+• стратегиями реализации
+
